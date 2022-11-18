@@ -18,7 +18,7 @@ def label(button, number=False):
                 num_label1['text'] = num_label1['text'][:-1]
                 if len(num_label1['text']) == 0:
                     num_label1['text'] = '0'
-            
+
         elif button == '+/-':
             if num_label1['text'] != '0':
                 if num_label1['text'][0] != '-':
@@ -33,7 +33,7 @@ def label(button, number=False):
         elif button == 'esc':
             num_label2['text'] = ''
             num_label1['text'] = '0'
-        
+
         # Operator
         else:
             if button == '%':
@@ -46,11 +46,12 @@ def label(button, number=False):
             else:
                 num_label1['text'] += button
 
+
 def calc():
     num_label2['text'] = num_label1['text']+' ='
 
-    num_label1['text'] = num_label1['text'].replace('×','*')
-    num_label1['text'] = num_label1['text'].replace('÷','/')
+    num_label1['text'] = num_label1['text'].replace('×', '*')
+    num_label1['text'] = num_label1['text'].replace('÷', '/')
     x = eval(num_label1['text'])
     y = int(x)
     if x == y:
@@ -98,16 +99,16 @@ tk.Button(button_frame, text='⌦', font=('Arial', 20), bg='black', fg='orange',
 tk.Button(button_frame, text='AC', font=('Arial', 20), bg='black', fg='orange', width=4, bd=0, activebackground='#333', activeforeground='orange', command=lambda button='esc': label(button)).grid(row=0, column=0)
 
 # Keybind
-window.bind('1', lambda event, button='1', num = True: label(button, num))
-window.bind('2', lambda event, button='2', num = True: label(button, num))
-window.bind('3', lambda event, button='3', num = True: label(button, num))
-window.bind('4', lambda event, button='4', num = True: label(button, num))
-window.bind('5', lambda event, button='5', num = True: label(button, num))
-window.bind('6', lambda event, button='6', num = True: label(button, num))
-window.bind('7', lambda event, button='7', num = True: label(button, num))
-window.bind('8', lambda event, button='8', num = True: label(button, num))
-window.bind('9', lambda event, button='9', num = True: label(button, num))
-window.bind('0', lambda event, button='0', num = True: label(button, num))
+window.bind('1', lambda event, button='1', num=True: label(button, num))
+window.bind('2', lambda event, button='2', num=True: label(button, num))
+window.bind('3', lambda event, button='3', num=True: label(button, num))
+window.bind('4', lambda event, button='4', num=True: label(button, num))
+window.bind('5', lambda event, button='5', num=True: label(button, num))
+window.bind('6', lambda event, button='6', num=True: label(button, num))
+window.bind('7', lambda event, button='7', num=True: label(button, num))
+window.bind('8', lambda event, button='8', num=True: label(button, num))
+window.bind('9', lambda event, button='9', num=True: label(button, num))
+window.bind('0', lambda event, button='0', num=True: label(button, num))
 window.bind('.', lambda event, button='.': label(button))
 window.bind('<Return>', lambda event: calc())
 window.bind('+', lambda event, button='+': label(button))
