@@ -37,7 +37,12 @@ def label(button, number=False):
         # Operator
         else:
             if button == '%':
-                num_label1['text'] = str(float(num_label1['text']) / 100)
+                x = float(num_label1['text']) / 100
+                y = int(x)
+                if x == y:
+                    num_label1['text'] = str(y)
+                else:
+                    num_label1['text'] = str(x)
             else:
                 num_label1['text'] += button
 
@@ -46,7 +51,12 @@ def calc():
 
     num_label1['text'] = num_label1['text'].replace('×','*')
     num_label1['text'] = num_label1['text'].replace('÷','/')
-    num_label1['text'] = str(eval(num_label1['text']))
+    x = eval(num_label1['text'])
+    y = int(x)
+    if x == y:
+        num_label1['text'] = str(y)
+    else:
+        num_label1['text'] = str(x)
 
 
 window = tk.Tk()
